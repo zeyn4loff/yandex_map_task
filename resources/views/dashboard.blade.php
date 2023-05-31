@@ -1,9 +1,9 @@
 @extends('layouts.site')
 @section('content')
   <div class="container py-5">
-    @if ($message = Session::get('success'))
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {!! Session::get('success') !!}
+    @if (Session::get('success') || Session::get('error'))
+      <div class="alert alert-{{ Session::get('success') ? 'success' : 'danger' }} alert-dismissible fade show" role="alert">
+        {!! Session::get('success') ?? Session::get('error') !!}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     @endif

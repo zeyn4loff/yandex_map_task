@@ -23,7 +23,7 @@ class LocationController extends Controller
     return $this->locationService->store($request);
   }
 
-  public function edit($id): View
+  public function edit($id): View|RedirectResponse
   {
     return $this->locationService->edit($id);
   }
